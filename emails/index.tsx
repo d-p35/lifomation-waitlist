@@ -1,9 +1,9 @@
+/* eslint-disable react/no-unescaped-entities */
 import {
   Body,
   Container,
   Head,
   Hr,
-  Html,
   Img,
   Preview,
   Text,
@@ -15,7 +15,7 @@ interface EmailProps {
 }
 
 export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
-  <Html>
+ <>
     <Head />
     <Preview>Thanks for Joining the Waitlist, {userFirstname}! 🎉</Preview>
     <Body style={main}>
@@ -60,7 +60,7 @@ export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
         </Text>
       </Container>
     </Body>
-  </Html>
+    </>
 );
 
 NotionWaitlistEmail.PreviewProps = {

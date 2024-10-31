@@ -61,24 +61,26 @@ export default function Home() {
           return; // Exit the promise early if mail sending fails
         }
 
-        // If email sending is successful, proceed to insert into Notion
-        const notionResponse = await fetch("/api/notion", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ name, email }),
-        });
+        resolve({ name });
 
-        if (!notionResponse.ok) {
-          if (notionResponse.status === 429) {
-            reject("Rate limited");
-          } else {
-            reject("Notion insertion failed");
-          }
-        } else {
-          resolve({ name });
-        }
+        // If email sending is successful, proceed to insert into Notion
+        // const notionResponse = await fetch("/api/notion", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({ name, email }),
+        // });
+
+        // if (!notionResponse.ok) {
+        //   if (notionResponse.status === 429) {
+        //     reject("Rate limited");
+        //   } else {
+        //     reject("Notion insertion failed");
+        //   }
+        // } else {
+        //   resolve({ name });
+        // }
       } catch (error) {
         reject(error);
       }
