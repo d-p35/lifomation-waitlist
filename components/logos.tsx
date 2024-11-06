@@ -23,19 +23,36 @@ export default function Logos() {
       <motion.div variants={itemVariants}>
         <TextBlur
           className="text-center text-2xl font-medium tracking-tight text-zinc-200 md:text-3xl"
-          text="Powered by"
+          text="See How It Works"
         />
       </motion.div>
 
       <motion.div variants={itemVariants}>
         <TextBlur
           className="text-center text-base text-zinc-300 sm:text-lg"
-          text="Simple and powerful tools that help you build faster"
+          text="Check out our demo video to see how Lifomation simplifies managing your life’s most important documents"
           duration={0.8}
         />
       </motion.div>
 
-      <motion.div
+      <motion.div variants={itemVariants}>
+        <TextBlur
+          className="text-center text-2xl font-medium tracking-tight text-zinc-200 md:text-3xl pt-1 md:pt-16"
+          text="Join the Waitlist Now!"
+        />
+      </motion.div>
+
+      <motion.div variants={itemVariants}>
+        <TextBlur
+          className="text-center text-base text-zinc-300 sm:text-lg"
+          text="Be one of the first to experience Lifomation."
+          duration={0.8}
+        />
+      </motion.div>
+
+
+
+      {/* <motion.div
         variants={itemVariants}
         className="mt-4 grid w-full grid-cols-2 items-center justify-center gap-4 md:mt-6 md:grid-cols-3 md:gap-6">
         {logos.map((logo, index) => (
@@ -54,7 +71,7 @@ export default function Logos() {
             />
           </Link>
         ))}
-      </motion.div>
+      </motion.div> */}
     </motion.div>
   );
 }

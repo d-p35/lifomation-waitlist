@@ -13,6 +13,7 @@ export default function Home() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [spotsLeft, setSpotsLeft] = useState<number>(100);
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -60,6 +61,8 @@ export default function Home() {
           }
           return; // Exit the promise early if mail sending fails
         }
+
+        setSpotsLeft(spotsLeft - 1);
 
         resolve({ name });
 
@@ -115,7 +118,7 @@ export default function Home() {
       <section className="flex flex-col items-center px-4 sm:px-6 lg:px-8">
         <Header />
 
-        <CTA />
+        <CTA spotsLeft={spotsLeft}/>
 
         <Form
           name={name}
@@ -124,6 +127,7 @@ export default function Home() {
           handleEmailChange={handleEmailChange}
           handleSubmit={handleSubmit}
           loading={loading}
+          
         />
 
         <Logos />
