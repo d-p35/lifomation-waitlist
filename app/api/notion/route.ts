@@ -42,3 +42,27 @@ export async function POST(request: Request) {
     return NextResponse.json({ success: false }, { status: 500 });
   }
 }
+
+
+export async function GET() {
+  try {
+    const notion = new Client({ auth: process.env.NOTION_SECRET });
+    const response = await notion.databases.query({
+      database_id: `${process.env.NOTION_DB}`,
+      filter: {
+        property: "Email",
+        email: {
+          is_not_empty: true,
+        },
+      },
+    });
+
+    if (!response) {
+      throw new Error("Failed to add email to Notion");
+    }
+
+    return NextResponse.json({ success: true, count: response?.results.length ?? 0 }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json({ success: false }, { status: 500 });
+  }
+}

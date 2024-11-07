@@ -1,7 +1,7 @@
 "use client";
 
 import { toast } from "sonner";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CTA from "@/components/cta";
 import Form from "@/components/form";
 import Logos from "@/components/logos";
@@ -13,7 +13,24 @@ export default function Home() {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [spotsLeft, setSpotsLeft] = useState<number>(100);
+  const [spotsLeft, setSpotsLeft] = useState<number>(0);
+
+  useEffect(() => {
+    const fetchSpotsLeft = async () => {
+      try {
+        const response = await fetch("/api/notion");
+        const data = await response.json();
+        console.log(data);
+        if (data.success) {
+          setSpotsLeft(Math.min(Math.max(1000 - data.count, 0), 132));
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchSpotsLeft();
+  }, []);
 
   const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -64,26 +81,26 @@ export default function Home() {
 
         setSpotsLeft(spotsLeft - 1);
 
-        resolve({ name });
+        
 
         // If email sending is successful, proceed to insert into Notion
-        // const notionResponse = await fetch("/api/notion", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //   },
-        //   body: JSON.stringify({ name, email }),
-        // });
+        const notionResponse = await fetch("/api/notion", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, email }),
+        });
 
-        // if (!notionResponse.ok) {
-        //   if (notionResponse.status === 429) {
-        //     reject("Rate limited");
-        //   } else {
-        //     reject("Notion insertion failed");
-        //   }
-        // } else {
-        //   resolve({ name });
-        // }
+        if (!notionResponse.ok) {
+          if (notionResponse.status === 429) {
+            reject("Rate limited");
+          } else {
+            reject("Notion insertion failed");
+          }
+        } else {
+          resolve({ name });
+        }
       } catch (error) {
         reject(error);
       }
