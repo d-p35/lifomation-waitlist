@@ -46,8 +46,6 @@ export async function POST(request: NextRequest, response: NextResponse) {
     html: render(WelcomeTemplate({ userFirstname: firstname })),
   });
 
-  console.log(data, error);
-
   // const { data, error } = { data: true, error: null }
 
   if (error) {

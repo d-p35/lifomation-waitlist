@@ -20,7 +20,6 @@ export default function Home() {
       try {
         const response = await fetch("/api/notion");
         const data = await response.json();
-        console.log(data);
         if (data.success) {
           setSpotsLeft(Math.min(Math.max(1000 - data.count, 0), 132));
         }
@@ -69,8 +68,6 @@ export default function Home() {
           },
           body: JSON.stringify({ firstname: name, email }),
         });
-
-        console.log(await mailResponse.json());
 
         if (!mailResponse.ok) {
           if (mailResponse.status === 429) {
