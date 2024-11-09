@@ -70,7 +70,7 @@ export default function Home() {
           body: JSON.stringify({ firstname: name, email }),
         });
 
-        console.log(mailResponse);
+        console.log(await mailResponse.json());
 
         if (!mailResponse.ok) {
           if (mailResponse.status === 429) {
