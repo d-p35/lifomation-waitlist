@@ -51,11 +51,11 @@ export async function POST(request: NextRequest, response: NextResponse) {
   // const { data, error } = { data: true, error: null }
 
   if (error) {
-    return NextResponse.json(error);
+    return NextResponse.json(error, { status: 500 });
   }
 
   if (!data) {
-    return NextResponse.json({ message: "Failed to send email" });
+    return NextResponse.json({ message: "Failed to send email", error: data }, { status: 500 });
   }
 
   return NextResponse.json({ message: "Email sent successfully" });

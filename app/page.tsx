@@ -70,6 +70,8 @@ export default function Home() {
           body: JSON.stringify({ firstname: name, email }),
         });
 
+        console.log(mailResponse);
+
         if (!mailResponse.ok) {
           if (mailResponse.status === 429) {
             reject("Rate limited");
@@ -78,6 +80,7 @@ export default function Home() {
           }
           return; // Exit the promise early if mail sending fails
         }
+        
 
         setSpotsLeft(spotsLeft - 1);
 
