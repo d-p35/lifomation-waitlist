@@ -21,7 +21,7 @@ export default function Home() {
         const response = await fetch("/api/notion");
         const data = await response.json();
         if (data.success) {
-          setSpotsLeft(Math.min(Math.max(1000 - data.count, 0), 132));
+          setSpotsLeft(1000 - data.count - 870 <= 0 ? 132 : 1000 - data.count - 870);
         }
       } catch (error) {
         console.error(error);
