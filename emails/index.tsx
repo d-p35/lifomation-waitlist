@@ -29,7 +29,7 @@ export const LifomationWaitlistEmail = ({ userFirstname }: EmailProps) => (
          />
          <Text style={greeting}>Hi {userFirstname},</Text>
          <Text style={paragraph}>
-           Welcome to the Lifomation family! I'm Lakshay, the developer behind Lifomation, and I'm thrilled to have you with us on this journey to revolutionize document organization.
+           Welcome to the Lifomation family! I'm Adam, the developer behind Lifomation, and I'm thrilled to have you with us on this journey to revolutionize document organization.
          </Text>
          <Text style={paragraph}>
            Imagine never losing track of an important document again. Lifomation will be your go-to for secure, instant access to essential information for your family and future.
@@ -44,7 +44,7 @@ export const LifomationWaitlistEmail = ({ userFirstname }: EmailProps) => (
          <Text style={signOff}>
            Warm regards,
            <br />
-           Lakshay
+           Adam
          </Text>
          <Hr style={hr} />
          <Text style={footer}>
