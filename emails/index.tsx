@@ -57,11 +57,11 @@ export const LifomationWaitlistEmail = ({ userFirstname }: EmailProps) => (
  );
  
 
-NotionWaitlistEmail.PreviewProps = {
+LifomationWaitlistEmail.PreviewProps = {
   userFirstname: "Tyler",
 } as EmailProps;
 
-export default NotionWaitlistEmail;
+export default LifomationWaitlistEmail;
 
 const main = {
   background: "linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)",
