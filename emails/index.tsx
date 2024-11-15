@@ -14,60 +14,54 @@ interface EmailProps {
   userFirstname: string;
 }
 
-export const NotionWaitlistEmail = ({ userFirstname }: EmailProps) => (
- <>
-    <Head />
-    <Preview>Thanks for Joining the Waitlist, {userFirstname}! 🎉</Preview>
-    <Body style={main}>
-      <Container style={container}>
-        <Img
-          src={`https://nextjs-notion-waitlist.vercel.app/waitlist-logo.png`}
-          width="220"
-          height="100"
-          alt="Notion Waitlist Logo"
-          style={logo}
-        />
-        <Text style={greeting}>Hi {userFirstname},</Text>
-        <Text style={paragraph}>
-          Thanks for joining the waitlist for our Next.js + Notion CMS waitlist
-          template! I'm Lakshay, the developer behind this project. I'm glad to
-          have you on board.
-        </Text>
-        <Text style={paragraph}>
-          I'll keep you posted on the progress and notify you as soon as it's
-          ready for you to use. In the meantime, if you have any questions or
-          feedback, don't hesitate to reach out by replying directly to{" "}
-          <a href="mailto:lakshb.work@gmail.com" style={link}>
-            this email {""}
-          </a>
-          — I'm here to listen!
-        </Text>
-        <Text style={paragraph}>
-          You can also follow me on X/Twitter for updates:{" "}
-          <a href="https://x.com/blakssh" style={link}>
-            @blakssh
-          </a>
-        </Text>
-        <Text style={signOff}>
-          Best regards,
-          <br />
-          Lakshay
-        </Text>
-        <Hr style={hr} />
-        <Text style={footer}>
-          You received this email because you signed up for the Notion waitlist.
-          If you believe this is a mistake, feel free to ignore this email.
-        </Text>
-      </Container>
-    </Body>
-    </>
-);
+export const LifomationWaitlistEmail = ({ userFirstname }: EmailProps) => (
+  <>
+     <Head />
+     <Preview>Exciting news, {userFirstname} – you’re on the Lifomation waitlist! 🚀</Preview>
+     <Body style={main}>
+       <Container style={container}>
+         <Img
+           src={`https://lifomation.com/waitlist-logo.png`}
+           width="220"
+           height="100"
+           alt="Lifomation Logo"
+           style={logo}
+         />
+         <Text style={greeting}>Hi {userFirstname},</Text>
+         <Text style={paragraph}>
+           Welcome to the Lifomation family! I'm Adam, the developer behind Lifomation, and I'm thrilled to have you with us on this journey to revolutionize document organization.
+         </Text>
+         <Text style={paragraph}>
+           Imagine never losing track of an important document again. Lifomation will be your go-to for secure, instant access to essential information for your family and future.
+         </Text>
+         <Text style={paragraph}>
+           Stay tuned – I’ll keep you updated on our progress and make sure you're among the first to experience the platform. If you have questions or ideas, reply directly to{" "}
+           <a href="mailto:adam.badar@mail.utoronto.com" style={link}>
+             this email
+           </a>{" "}
+           – I'd love to hear from you!
+         </Text>
+         <Text style={signOff}>
+           Warm regards,
+           <br />
+           Adam
+         </Text>
+         <Hr style={hr} />
+         <Text style={footer}>
+           You received this email because you signed up for Lifomation updates.
+           If this was a mistake, feel free to ignore.
+         </Text>
+       </Container>
+     </Body>
+  </>
+ );
+ 
 
-NotionWaitlistEmail.PreviewProps = {
+LifomationWaitlistEmail.PreviewProps = {
   userFirstname: "Tyler",
 } as EmailProps;
 
-export default NotionWaitlistEmail;
+export default LifomationWaitlistEmail;
 
 const main = {
   background: "linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%)",
