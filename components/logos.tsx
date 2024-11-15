@@ -35,6 +35,19 @@ export default function Logos() {
         />
       </motion.div>
 
+      <motion.div variants={itemVariants} className="flex justify-center pt-8">
+        <video
+          width="100%"
+          height="auto"
+          controls
+          className="rounded-lg shadow-lg"
+          style={{ maxWidth: "800px" }}
+        >
+          <source src="/Lifo-Demo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </motion.div>
+
       <motion.div variants={itemVariants}>
         <TextBlur
           className="text-center text-2xl font-medium tracking-tight text-zinc-200 md:text-3xl pt-1 md:pt-16"
